@@ -24,11 +24,11 @@ def home():
 def predict():
     if request.method == 'POST':
         
-        glucose = int(request.form['glucose'])
-        bp = int(request.form['bloodpressure'])
-        st = int(request.form['skinthickness'])
+        glucose = float(request.form['glucose'])
+        bp = float(request.form['bloodpressure'])
+        st = float(request.form['skinthickness'])
         bmi = float(request.form['bmi'])
-        age = int(request.form['age'])
+        age = float(request.form['age'])
         
         data = np.array([[glucose, bp, st, bmi, age]])
         my_prediction = nb_model.predict(data)
